@@ -1,0 +1,7 @@
+{
+	"name": "synapse-ws-custstgacct--ajlndsynapse-ajlndsynapsedatalake",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/6a356b0c-545b-4fc0-9928-c40147897332/resourceGroups/aj-lnd-Synapse/providers/Microsoft.Storage/storageAccounts/ajlndsynapsedatalake",
+		"groupId": "dfs"
+	}
+}
