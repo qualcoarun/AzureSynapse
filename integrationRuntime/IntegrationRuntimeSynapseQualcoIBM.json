@@ -1,0 +1,7 @@
+{
+	"name": "IntegrationRuntimeSynapseQualcoIBM",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "IntegrationRuntimeSynapseQualcoIBM"
+	}
+}
