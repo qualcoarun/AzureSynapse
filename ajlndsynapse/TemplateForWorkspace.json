@@ -1447,7 +1447,7 @@
 				],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
-					"blobPathBeginsWith": "/trigggercontainer/blobs/etlconfig",
+					"blobPathBeginsWith": "/trigggercontainer/blobs/etlconfi",
 					"blobPathEndsWith": ".csv",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('etlconfigtrigger_properties_typeProperties_scope')]",
