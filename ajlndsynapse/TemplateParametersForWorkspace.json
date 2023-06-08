@@ -19,6 +19,9 @@
 		},
 		"ajlndsynapse-WorkspaceDefaultStorage_properties_typeProperties_url": {
 			"value": "https://ajlndsynapsedatalake.dfs.core.windows.net"
+		},
+		"etlconfigtrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/6a356b0c-545b-4fc0-9928-c40147897332/resourceGroups/aj-lnd-Synapse/providers/Microsoft.Storage/storageAccounts/ajlndsynapsedatalake"
 		}
 	}
 }

@@ -27,6 +27,10 @@
 		"ajlndsynapse-WorkspaceDefaultStorage_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://ajlndsynapsedatalake.dfs.core.windows.net"
+		},
+		"etlconfigtrigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/6a356b0c-545b-4fc0-9928-c40147897332/resourceGroups/aj-lnd-Synapse/providers/Microsoft.Storage/storageAccounts/ajlndsynapsedatalake"
 		}
 	},
 	"variables": {
@@ -1325,7 +1329,10 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": "qbclstofvals",
+						"fileName": {
+							"value": "@concat('QbcLstOfVal_',formatDateTime(utcNow(),'yyyyMMddHHmmss'),'.parquet')\n\n",
+							"type": "Expression"
+						},
 						"folderPath": "Staging",
 						"fileSystem": "ajlndsynapsefilesystem"
 					},
@@ -1420,6 +1427,37 @@
 			},
 			"dependsOn": [
 				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/etlconfigtrigger')]",
+			"type": "Microsoft.Synapse/workspaces/triggers",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "Pipeline 1",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/trigggercontainer/blobs/etlconfig",
+					"blobPathEndsWith": ".csv",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('etlconfigtrigger_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/pipelines/Pipeline 1')]"
 			]
 		},
 		{
