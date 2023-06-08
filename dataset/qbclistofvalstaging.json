@@ -10,7 +10,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "qbclstofvals",
+				"fileName": {
+					"value": "@concat('QbcLstOfVal_',formatDateTime(utcNow(),'yyyyMMddHHmmss'),'.parquet')\n\n",
+					"type": "Expression"
+				},
 				"folderPath": "Staging",
 				"fileSystem": "ajlndsynapsefilesystem"
 			},
