@@ -1439,7 +1439,7 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "Pipeline 1",
+							"referenceName": "IbmToAzureQBPlus",
 							"type": "PipelineReference"
 						},
 						"parameters": {}
@@ -1457,7 +1457,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('workspaceId'), '/pipelines/Pipeline 1')]"
+				"[concat(variables('workspaceId'), '/pipelines/IbmToAzureQBPlus')]"
 			]
 		},
 		{
