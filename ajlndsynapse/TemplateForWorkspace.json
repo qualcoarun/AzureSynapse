@@ -1436,7 +1436,15 @@
 			"properties": {
 				"annotations": [],
 				"runtimeState": "Stopped",
-				"pipelines": [],
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "IbmToAzureQBPlus",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
 					"blobPathBeginsWith": "/trigggercontainer/blobs/etlconfi",
@@ -1448,7 +1456,9 @@
 					]
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/pipelines/IbmToAzureQBPlus')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('workspaceName'), '/AutoResolveIntegrationRuntime')]",
