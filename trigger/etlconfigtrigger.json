@@ -2,8 +2,15 @@
 	"name": "etlconfigtrigger",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
-		"pipelines": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "IbmToAzureQBPlus",
+					"type": "PipelineReference"
+				}
+			}
+		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
 			"blobPathBeginsWith": "/trigggercontainer/blobs/etlconfi",
