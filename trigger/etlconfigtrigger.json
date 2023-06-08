@@ -1,0 +1,25 @@
+{
+	"name": "etlconfigtrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Pipeline 1",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/trigggercontainer/blobs/etlconfig",
+			"blobPathEndsWith": ".csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/6a356b0c-545b-4fc0-9928-c40147897332/resourceGroups/aj-lnd-Synapse/providers/Microsoft.Storage/storageAccounts/ajlndsynapsedatalake",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
