@@ -1,20 +1,22 @@
 {
-	"name": "qbclistofvalstaging",
+	"name": "DelimitedText1",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "DataLakeStaging",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "Parquet",
+		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "qbclstofvals",
+				"fileName": "qbclstofvalcsv",
 				"folderPath": "Staging",
 				"fileSystem": "ajlndsynapsefilesystem"
 			},
-			"compressionCodec": "snappy"
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
 		},
 		"schema": []
 	},

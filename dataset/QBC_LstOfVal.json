@@ -182,5 +182,6 @@
 			"schema": "AzStaging",
 			"table": "AT_LST_OF_VAL"
 		}
-	}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
 }

@@ -1,0 +1,520 @@
+{
+	"name": "Pipeline 1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "LOV_CODE",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"type": "Int32",
+									"physicalType": "INT_32",
+									"ordinal": 1
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_CREATED",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								},
+								"sink": {
+									"type": "DateTime",
+									"physicalType": "INT_96",
+									"ordinal": 2
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_LAST_UPD",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								},
+								"sink": {
+									"type": "DateTime",
+									"physicalType": "INT_96",
+									"ordinal": 3
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_CREATED_BY",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"type": "String",
+									"physicalType": "UTF8",
+									"ordinal": 4
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_LAST_UPD_BY",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"type": "String",
+									"physicalType": "UTF8",
+									"ordinal": 5
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_MODIFICATION_NUM",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"type": "Int32",
+									"physicalType": "INT_32",
+									"ordinal": 6
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_INTERNAL",
+									"type": "Byte",
+									"physicalType": "tinyint"
+								},
+								"sink": {
+									"type": "Byte",
+									"physicalType": "INT_32",
+									"ordinal": 7
+								}
+							},
+							{
+								"source": {
+									"name": "COMP_CODE",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"type": "Int32",
+									"physicalType": "INT_32",
+									"ordinal": 8
+								}
+							},
+							{
+								"source": {
+									"name": "LOVT_CODE",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"type": "Int32",
+									"physicalType": "INT_32",
+									"ordinal": 9
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_CODE_PARENT",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"type": "Int32",
+									"physicalType": "INT_32",
+									"ordinal": 10
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_DESC",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"type": "String",
+									"physicalType": "UTF8",
+									"ordinal": 11
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_ACTIVE",
+									"type": "Boolean",
+									"physicalType": "bit"
+								},
+								"sink": {
+									"type": "Boolean",
+									"physicalType": "BOOLEAN",
+									"ordinal": 12
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_LOW",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"type": "Int32",
+									"physicalType": "INT_32",
+									"ordinal": 13
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_HIGH",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"type": "Int32",
+									"physicalType": "INT_32",
+									"ordinal": 14
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_INTERNAL_DESC",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"type": "String",
+									"physicalType": "UTF8",
+									"ordinal": 15
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_COMMENTS",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"type": "String",
+									"physicalType": "UTF8",
+									"ordinal": 16
+								}
+							},
+							{
+								"source": {
+									"name": "ENT_CODE",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"type": "Int32",
+									"physicalType": "INT_32",
+									"ordinal": 17
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_IS_SUBMITTED",
+									"type": "Boolean",
+									"physicalType": "bit"
+								},
+								"sink": {
+									"type": "Boolean",
+									"physicalType": "BOOLEAN",
+									"ordinal": 18
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_IS_APPROVED",
+									"type": "Boolean",
+									"physicalType": "bit"
+								},
+								"sink": {
+									"type": "Boolean",
+									"physicalType": "BOOLEAN",
+									"ordinal": 19
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_IS_REJECTED",
+									"type": "Boolean",
+									"physicalType": "bit"
+								},
+								"sink": {
+									"type": "Boolean",
+									"physicalType": "BOOLEAN",
+									"ordinal": 20
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_IS_COMPLETED",
+									"type": "Boolean",
+									"physicalType": "bit"
+								},
+								"sink": {
+									"type": "Boolean",
+									"physicalType": "BOOLEAN",
+									"ordinal": 21
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_IS_CANCELLED",
+									"type": "Boolean",
+									"physicalType": "bit"
+								},
+								"sink": {
+									"type": "Boolean",
+									"physicalType": "BOOLEAN",
+									"ordinal": 22
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_S_ID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"type": "String",
+									"physicalType": "UTF8",
+									"ordinal": 23
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_SOURCE",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"type": "String",
+									"physicalType": "UTF8",
+									"ordinal": 24
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_GROUP",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"type": "String",
+									"physicalType": "UTF8",
+									"ordinal": 25
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_RETYPE_PASS",
+									"type": "Boolean",
+									"physicalType": "bit"
+								},
+								"sink": {
+									"type": "Boolean",
+									"physicalType": "BOOLEAN",
+									"ordinal": 26
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_IS_OUT_OF_COLLECTION",
+									"type": "Boolean",
+									"physicalType": "bit"
+								},
+								"sink": {
+									"type": "Boolean",
+									"physicalType": "BOOLEAN",
+									"ordinal": 27
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_IS_APPROVAL_LEVEL",
+									"type": "Boolean",
+									"physicalType": "bit"
+								},
+								"sink": {
+									"type": "Boolean",
+									"physicalType": "BOOLEAN",
+									"ordinal": 28
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_IS_SETTLEMENT_ACTIVATE",
+									"type": "Boolean",
+									"physicalType": "bit"
+								},
+								"sink": {
+									"type": "Boolean",
+									"physicalType": "BOOLEAN",
+									"ordinal": 29
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_IS_SETTLEMENT_CANCEL",
+									"type": "Boolean",
+									"physicalType": "bit"
+								},
+								"sink": {
+									"type": "Boolean",
+									"physicalType": "BOOLEAN",
+									"ordinal": 30
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_PRIORITY",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"type": "Int32",
+									"physicalType": "INT_32",
+									"ordinal": 31
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_IS_ANALYTICS_END",
+									"type": "Boolean",
+									"physicalType": "bit"
+								},
+								"sink": {
+									"type": "Boolean",
+									"physicalType": "BOOLEAN",
+									"ordinal": 32
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_IS_ACTIVATED",
+									"type": "Boolean",
+									"physicalType": "bit"
+								},
+								"sink": {
+									"type": "Boolean",
+									"physicalType": "BOOLEAN",
+									"ordinal": 33
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_LONG_DESC",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"type": "String",
+									"physicalType": "UTF8",
+									"ordinal": 34
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_IS_LOCKED",
+									"type": "Boolean",
+									"physicalType": "bit"
+								},
+								"sink": {
+									"type": "Boolean",
+									"physicalType": "BOOLEAN",
+									"ordinal": 35
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_IS_LOCK_PROPERTIES",
+									"type": "Boolean",
+									"physicalType": "bit"
+								},
+								"sink": {
+									"type": "Boolean",
+									"physicalType": "BOOLEAN",
+									"ordinal": 36
+								}
+							},
+							{
+								"source": {
+									"name": "LOV_AGGREGATED_PRIORITY",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"type": "Int32",
+									"physicalType": "INT_32",
+									"ordinal": 37
+								}
+							},
+							{
+								"source": {
+									"name": "DW_UPDATED_ON",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								},
+								"sink": {
+									"type": "DateTime",
+									"physicalType": "INT_96",
+									"ordinal": 38
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "QBC_LstOfVal",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-06-08T17:25:39Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}
