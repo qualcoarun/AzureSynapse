@@ -1,0 +1,16 @@
+{
+	"name": "ECAnalytics",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=VELAR;initial catalog=ECAnalytics;user id=ajoseph",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2M2RmMWYxMS02M2EyLTQ2MTMtOTk4YS1jYWM3MDNkNjFkMzAiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SynpaseIntegrationRuntimeQualcoIBMDatacenter",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

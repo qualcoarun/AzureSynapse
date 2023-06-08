@@ -1,0 +1,7 @@
+{
+	"name": "SynpaseIntegrationRuntimeQualcoIBMDatacenter",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "SynpaseIntegrationRuntimeQualcoIBMDatacenter"
+	}
+}
