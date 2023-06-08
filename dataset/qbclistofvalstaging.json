@@ -1,0 +1,21 @@
+{
+	"name": "qbclistofvalstaging",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DataLakeStaging",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "qbclstofvals",
+				"folderPath": "Staging",
+				"fileSystem": "ajlndsynapsefilesystem"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
