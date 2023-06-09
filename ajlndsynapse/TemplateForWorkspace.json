@@ -31,6 +31,10 @@
 		"etlconfigtrigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/6a356b0c-545b-4fc0-9928-c40147897332/resourceGroups/aj-lnd-Synapse/providers/Microsoft.Storage/storageAccounts/ajlndsynapsedatalake"
+		},
+		"qualcoajstoragetriggerfilesetlconfig_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/6a356b0c-545b-4fc0-9928-c40147897332/resourceGroups/AJ_PowerShell_RG/providers/Microsoft.Storage/storageAccounts/qualcoajstorageaccount"
 		}
 	},
 	"variables": {
@@ -1436,15 +1440,7 @@
 			"properties": {
 				"annotations": [],
 				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "IbmToAzureQBPlus",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
+				"pipelines": [],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
 					"blobPathBeginsWith": "/ajlndsynapsefilesystem/blobs/trigggercontainer/etlconfig",
@@ -1456,9 +1452,7 @@
 					]
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('workspaceId'), '/pipelines/IbmToAzureQBPlus')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('workspaceName'), '/AutoResolveIntegrationRuntime')]",
@@ -1553,6 +1547,37 @@
 			},
 			"dependsOn": [
 				"[concat(variables('workspaceId'), '/managedVirtualNetworks/default')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/qualcoajstoragetriggerfilesetlconfig')]",
+			"type": "Microsoft.Synapse/workspaces/triggers",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "IbmToAzureQBPlus",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/triggerfiles/blobs/etlconfig",
+					"blobPathEndsWith": ".csv",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('qualcoajstoragetriggerfilesetlconfig_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/pipelines/IbmToAzureQBPlus')]"
 			]
 		}
 	]
