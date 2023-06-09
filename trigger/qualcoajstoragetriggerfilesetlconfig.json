@@ -1,0 +1,25 @@
+{
+	"name": "qualcoajstoragetriggerfilesetlconfig",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "IbmToAzureQBPlus",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/triggerfiles/blobs/etlconfig",
+			"blobPathEndsWith": ".csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/6a356b0c-545b-4fc0-9928-c40147897332/resourceGroups/AJ_PowerShell_RG/providers/Microsoft.Storage/storageAccounts/qualcoajstorageaccount",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
